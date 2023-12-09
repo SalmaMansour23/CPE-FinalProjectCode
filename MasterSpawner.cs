@@ -96,10 +96,17 @@ public class SpiderBehavior : MonoBehaviour
     private GameObject player;
     private float speed;
 
+    //Initialization
     public void Initialize(GameObject targetPlayer, float spiderSpeed)
     {
         player = targetPlayer;
         speed = spiderSpeed;
+    }
+
+    //Allows updating the speed
+    public void UpdateSpeed(float newSpeed)
+    {
+        speed = newSpeed;
     }
 
     void Update()
