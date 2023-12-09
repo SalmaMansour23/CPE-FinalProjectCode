@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class AcrophobiaHandler : MonoBehaviour
 {
-    // Public variables to adjust in the inspector
-    public GameObject player; // Assign your player object here
-    public GameObject sea; // Assign your sea object here
-    public GameObject tower; // Assign your tower object here
-    public GameObject playerSpawner; // Assign your player spawner object here
+    // Public game object variables
+    public GameObject player; 
+    public GameObject sea;
+    public GameObject tower; 
+    public GameObject playerSpawner; 
 
     public float seaMoveDownUnits = 5f; // How much the sea moves down each time
     public float towerShrinkUnits = 1f; // How much the tower shrinks in X and Z axis
