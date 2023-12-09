@@ -91,30 +91,35 @@ public class LC : MonoBehaviour
         SceneManager.LoadScene("Acrophobia");
     }
 
+    //Method to play white noise
     public void PlayWhiteNoise()
     {
          Debug.Log("Play White NOISE");
         WhiteNoise.SetActive(true);
     }
 
+    //Method to play red noise
     public void PlayRedNoise()
     {
         Debug.Log("Play Red NOISE");
         RedNoise.SetActive(true);
     }
 
+    //Method to play guided meditation noise
     public void PlayMeditationNoise()
     {
         Debug.Log("Play Meditation NOISE");
         GuidedMeditationNoise.SetActive(true);
     }
-
+    
+    //Method to play fire crackling and rain noise
     public void PlayRainNoise()
     {
         Debug.Log("Play Rain NOISE");
         FireCracklingAndRainNoise.SetActive(true);
     }
 
+    //Method to play gentle beach waves noise
     public void PlayBeachNoise()
     {
         Debug.Log("Play Beach NOISE");
