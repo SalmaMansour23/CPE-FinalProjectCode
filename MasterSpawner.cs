@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class MasterSpawner : MonoBehaviour
 {
-    // Declare the mini spawners and spider prefabs as public GameObjects to be assigned in the Unity Editor
+    // Declare the mini spawners and spider prefabs as public Game Objects
     public GameObject[] miniSpawners = new GameObject[4];
     public GameObject[] spiderPrefabs = new GameObject[4];
 
@@ -38,6 +38,8 @@ public class MasterSpawner : MonoBehaviour
         if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch))
         {
             SpiderSizeMultiplier += 0.1f;
+            
+            //Update the size of all existing spiders
             UpdateAllSpidersSize();
         }
 
@@ -45,6 +47,9 @@ public class MasterSpawner : MonoBehaviour
         if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.LTouch))
         {
             SpiderSpeed += 0.1f;
+            
+            // Update the speed of all existing spiders
+            UpdateAllSpidersSpeed();
         }
     }
 
@@ -53,9 +58,10 @@ public class MasterSpawner : MonoBehaviour
         // Iterate through all mini spawners and spawn each type of spider
         for (int i = 0; i < miniSpawners.Length; i++)
         {
+            // Instantiate a spider prefab at the mini spawner's position
             GameObject spider = Instantiate(spiderPrefabs[i], miniSpawners[i].transform.position, Quaternion.identity);
             spider.transform.localScale *= SpiderSizeMultiplier; // Scale the spider size
-            Rigidbody spiderRigidbody = spider.GetComponent<Rigidbody>();
+            Rigidbody spiderRigidbody = spider.GetComponent<Rigidbody>(); //Access the rigid body of the spider
             spiderRigidbody.useGravity = true; // Let the spider fall to the ground
             currentSpiderCount++; // Increment the spider count
             SpiderBehavior spiderBehavior = spider.AddComponent<SpiderBehavior>(); // Add the SpiderBehavior script
@@ -70,6 +76,16 @@ public class MasterSpawner : MonoBehaviour
         foreach (SpiderBehavior spider in allSpiders)
         {
             spider.transform.localScale *= (1/SpiderSizeMultiplier); // Scale the spider size
+        }
+    }
+
+    void UpdateAllSpidersSpeed()
+    {
+        // Find all spiders in the scene and update their speed
+        SpiderBehavior[] allSpiders = FindObjectsOfType<SpiderBehavior>();
+        foreach (SpiderBehavior spider in allSpiders)
+        {
+            spider.UpdateSpeed(SpiderSpeed); //Increase spider speed
         }
     }
 }
