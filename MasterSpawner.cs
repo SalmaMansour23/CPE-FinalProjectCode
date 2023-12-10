@@ -103,7 +103,7 @@ public class SpiderBehavior : MonoBehaviour
         speed = spiderSpeed;
     }
 
-    //Allows updating the speed
+    //Allows updating the speed of the spider
     public void UpdateSpeed(float newSpeed)
     {
         speed = newSpeed;
