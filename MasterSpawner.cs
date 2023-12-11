@@ -35,6 +35,7 @@ public class MasterSpawner : MonoBehaviour
         // Check for the 'B' oculus input to increase the size multiplier
         if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch))
         {
+            //Controls factor by which spider size increases 
             SpiderSizeMultiplier += 0.1f;
             
             //Update the size of all existing spiders
@@ -44,6 +45,7 @@ public class MasterSpawner : MonoBehaviour
         // Check for the 'X' oculus input to increase the speed
         if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.LTouch))
         {
+            //Increases the speed of the spiders
             SpiderSpeed += 0.1f;
             
             // Update the speed of all existing spiders
